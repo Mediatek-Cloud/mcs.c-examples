@@ -180,7 +180,7 @@ int main(void)
      */
     wifi_config_t config = {0};
     config.opmode = WIFI_MODE_STA_ONLY;
-    strcpy((char *)config.sta_config.ssid, SSID;
+    strcpy((char *)config.sta_config.ssid, SSID);
     strcpy((char *)config.sta_config.password, PASSWORD);
     config.sta_config.ssid_length = strlen((const char *)config.sta_config.ssid);
     config.sta_config.password_length = strlen((const char *)config.sta_config.password);
