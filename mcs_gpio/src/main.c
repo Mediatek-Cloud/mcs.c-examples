@@ -48,6 +48,7 @@
 #include "syslog.h"
 #include "os.h"
 #include <nvdm.h>
+
 #include "mcs.h"
 #include "httpclient.h"
 #include "hal_gpio.h"
@@ -139,7 +140,6 @@ static void app_entry(void *args)
     }
 }
 
-
 /**
   * @brief  Main program
   * @param  None
@@ -177,6 +177,13 @@ int main(void)
     lwip_network_init(config.opmode);
     lwip_net_start(config.opmode);
 
+    xTaskCreate(app_entry,
+        APP_TASK_NAME,
+        APP_TASK_STACKSIZE/sizeof(portSTACK_TYPE),
+        NULL,
+        APP_TASK_PRIO,
+        NULL);
+
     /* Create a user task for demo when and how to use wifi config API  to change WiFI settings,
        Most WiFi APIs must be called in task scheduler, the system will work wrong if called in main(),
        For which API must be called in task, please refer to wifi_api.h or WiFi API reference.
@@ -186,10 +193,7 @@ int main(void)
                 NULL, UNIFY_USR_DEMO_TASK_PRIO, NULL);
     */
 
-    xTaskCreate(app_entry, APP_TASK_NAME, APP_TASK_STACKSIZE/sizeof(portSTACK_TYPE), NULL, APP_TASK_PRIO, NULL);
-
     /* Initialize cli task to enable user input cli command from uart port.*/
-
 #if defined(MTK_MINICLI_ENABLE)
     cli_def_create();
     cli_task_create();

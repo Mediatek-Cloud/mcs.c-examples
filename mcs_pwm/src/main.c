@@ -48,6 +48,7 @@
 #include "syslog.h"
 #include "os.h"
 #include <nvdm.h>
+
 #include "mcs.h"
 #include "httpclient.h"
 #include "hal_pwm.h"
@@ -63,7 +64,6 @@
 #define pwm_pin 32
 #define pin 31
 #define PWM_CHANNEL "PWM"
-
 
 #define APP_TASK_NAME                   "user entry"
 #define APP_TASK_STACKSIZE              (6*1024)
@@ -118,27 +118,6 @@ static uint32_t syslog_config_load(syslog_config_t *config)
 }
 #endif
 
-void start_pwm() {
-    /* pwm */
-    hal_pinmux_set_function(pin, 9);
-
-    uint32_t total_count = 0;
-
-    if (HAL_PWM_STATUS_OK != hal_pwm_init(HAL_PWM_CLOCK_40MHZ)) {
-      printf("hal_pwm_init fail");
-    }
-    if (HAL_PWM_STATUS_OK != hal_pwm_set_frequency(pwm_pin, frequency, &total_count)) {
-      printf("hal_pwm_set_frequency fail");
-    }
-    if (HAL_PWM_STATUS_OK != hal_pwm_set_duty_cycle(pwm_pin, 0)) {
-      printf("hal_pwm_set_duty_cycle fail");
-    }
-    if (HAL_PWM_STATUS_OK != hal_pwm_start(pwm_pin)) {
-      printf("hal_pwm_start fail");
-    }
-
-}
-
 void tcp_callback(char *rcv_buf) {
     char *arr[5];
     char *del = ",";
@@ -162,6 +141,26 @@ static void app_entry(void *args)
     }
 }
 
+void start_pwm() {
+    /* pwm */
+    hal_pinmux_set_function(pin, 9);
+
+    uint32_t total_count = 0;
+
+    if (HAL_PWM_STATUS_OK != hal_pwm_init(HAL_PWM_CLOCK_40MHZ)) {
+      printf("hal_pwm_init fail");
+    }
+    if (HAL_PWM_STATUS_OK != hal_pwm_set_frequency(pwm_pin, frequency, &total_count)) {
+      printf("hal_pwm_set_frequency fail");
+    }
+    if (HAL_PWM_STATUS_OK != hal_pwm_set_duty_cycle(pwm_pin, 0)) {
+      printf("hal_pwm_set_duty_cycle fail");
+    }
+    if (HAL_PWM_STATUS_OK != hal_pwm_start(pwm_pin)) {
+      printf("hal_pwm_start fail");
+    }
+
+}
 
 /**
   * @brief  Main program
@@ -200,6 +199,13 @@ int main(void)
     lwip_network_init(config.opmode);
     lwip_net_start(config.opmode);
 
+    xTaskCreate(app_entry,
+        APP_TASK_NAME,
+        APP_TASK_STACKSIZE/sizeof(portSTACK_TYPE),
+        NULL,
+        APP_TASK_PRIO,
+        NULL);
+    start_pwm();
     /* Create a user task for demo when and how to use wifi config API  to change WiFI settings,
        Most WiFi APIs must be called in task scheduler, the system will work wrong if called in main(),
        For which API must be called in task, please refer to wifi_api.h or WiFi API reference.
@@ -209,10 +215,7 @@ int main(void)
                 NULL, UNIFY_USR_DEMO_TASK_PRIO, NULL);
     */
 
-    xTaskCreate(app_entry, APP_TASK_NAME, APP_TASK_STACKSIZE/sizeof(portSTACK_TYPE), NULL, APP_TASK_PRIO, NULL);
-    start_pwm();
     /* Initialize cli task to enable user input cli command from uart port.*/
-
 #if defined(MTK_MINICLI_ENABLE)
     cli_def_create();
     cli_task_create();

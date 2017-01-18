@@ -40,7 +40,6 @@
 #include "sys_init.h"
 #include "wifi_lwip_helper.h"
 #include "wifi_api.h"
-#include "bsp_gpio_ept_config.h"
 #if defined(MTK_MINICLI_ENABLE)
 #include "cli_def.h"
 #endif
@@ -49,13 +48,14 @@
 #include "syslog.h"
 #include "os.h"
 #include <nvdm.h>
+
 #include "mcs.h"
+#include "httpclient.h"
+#include "hal_gpio.h"
 
 #define SSID "mcs"
 #define PASSWORD "mcs12345678"
 
-/* gpio module */
-#include "hal_gpio.h"
 #define GPIO_ON "switch,1"
 #define GPIO_OFF "switch,0"
 
@@ -113,7 +113,6 @@ static uint32_t syslog_config_load(syslog_config_t *config)
 #endif
 
 void mcs_mqtt_callback(char *rcv_buf) {
-
     int pin = 35;
 
     hal_pinmux_set_function(pin, 8);
@@ -141,7 +140,6 @@ static void app_entry(void *args)
     }
 }
 
-
 /**
   * @brief  Main program
   * @param  None
@@ -152,6 +150,7 @@ int main(void)
     /* Do system initialization, eg: hardware, nvdm, logging and random seed. */
     system_init();
     bsp_ept_gpio_setting_init();
+
 #ifndef MTK_DEBUG_LEVEL_NONE
     log_init(syslog_config_save, syslog_config_load, syslog_control_blocks);
 #endif
@@ -177,6 +176,14 @@ int main(void)
     /* Tcpip stack and net interface initialization,  dhcp client, dhcp server process initialization*/
     lwip_network_init(config.opmode);
     lwip_net_start(config.opmode);
+
+    xTaskCreate(app_entry,
+        APP_TASK_NAME,
+        APP_TASK_STACKSIZE/sizeof(portSTACK_TYPE),
+        NULL,
+        APP_TASK_PRIO,
+        NULL);
+
     /* Create a user task for demo when and how to use wifi config API  to change WiFI settings,
        Most WiFi APIs must be called in task scheduler, the system will work wrong if called in main(),
        For which API must be called in task, please refer to wifi_api.h or WiFi API reference.
@@ -186,10 +193,7 @@ int main(void)
                 NULL, UNIFY_USR_DEMO_TASK_PRIO, NULL);
     */
 
-    xTaskCreate(app_entry, APP_TASK_NAME, APP_TASK_STACKSIZE/sizeof(portSTACK_TYPE), NULL, APP_TASK_PRIO, NULL);
-
     /* Initialize cli task to enable user input cli command from uart port.*/
-
 #if defined(MTK_MINICLI_ENABLE)
     cli_def_create();
     cli_task_create();
