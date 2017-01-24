@@ -179,7 +179,7 @@ void interrupt_read_init()
         uint32_t time_record = get_current_milisecond();
         char str[15];
         sprintf(str, "%d", time_record);
-        mcs_mqtt_upload_datapoint("decodeByMD5", str);
+        mcs_mqtt_upload_datapoint("message", str);
     }
 
     /* configure the pull state to pull-down.*/
