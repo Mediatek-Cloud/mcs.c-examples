@@ -1,6 +1,6 @@
 {
   "prototype": {
-    "prodName": "7687_pwm_mqtt_demo",
+    "prodName": "mcs_gpio_interrupt_mqtt",
     "description": "",
     "developmentNote": null,
     "prodAppTypeId": 1,
