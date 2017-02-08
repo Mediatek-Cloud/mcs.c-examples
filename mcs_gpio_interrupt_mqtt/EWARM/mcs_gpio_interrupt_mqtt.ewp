@@ -77,7 +77,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>7.50.1.10270</state>
+          <state>7.80.4.12487</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -127,7 +127,7 @@
         </option>
         <option>
           <name>GBECoreSlave</name>
-          <version>22</version>
+          <version>24</version>
           <state>39</state>
         </option>
         <option>
@@ -144,7 +144,7 @@
         </option>
         <option>
           <name>CoreVariant</name>
-          <version>22</version>
+          <version>24</version>
           <state>39</state>
         </option>
         <option>
@@ -167,7 +167,7 @@
         </option>
         <option>
           <name>GFPUCoreSlave2</name>
-          <version>22</version>
+          <version>24</version>
           <state>39</state>
         </option>
       </data>
@@ -359,7 +359,14 @@
           <state>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\util\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\wifi\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\ept\inc</state>
-	  <state>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\external_flash\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\external_flash\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\httpclient\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTClient-C\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTClient-C\src\mediatek</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTPacket\src</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mbedtls\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\fota\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\fota\inc\76x7</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -693,7 +700,7 @@
       <name>ILINK</name>
       <archiveVersion>0</archiveVersion>
       <data>
-        <version>16</version>
+        <version>18</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>1</debug>
         <option>
@@ -968,7 +975,7 @@
         </option>
         <option>
           <name>CrcAlgorithm</name>
-          <version>0</version>
+          <version>1</version>
           <state>1</state>
         </option>
         <option>
@@ -979,6 +986,14 @@
         <option>
           <name>IlinkThreadsSlave</name>
           <state>1</state>
+        </option>
+        <option>
+          <name>IlinkLogCallGraph</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>IlinkIcfFile_AltDefault</name>
+          <state></state>
         </option>
       </data>
     </settings>
@@ -1134,7 +1149,7 @@
         </option>
         <option>
           <name>GBECoreSlave</name>
-          <version>22</version>
+          <version>24</version>
           <state>0</state>
         </option>
         <option>
@@ -1151,7 +1166,7 @@
         </option>
         <option>
           <name>CoreVariant</name>
-          <version>22</version>
+          <version>24</version>
           <state>0</state>
         </option>
         <option>
@@ -1174,7 +1189,7 @@
         </option>
         <option>
           <name>GFPUCoreSlave2</name>
-          <version>22</version>
+          <version>24</version>
           <state>0</state>
         </option>
       </data>
@@ -1651,7 +1666,7 @@
       <name>ILINK</name>
       <archiveVersion>0</archiveVersion>
       <data>
-        <version>16</version>
+        <version>18</version>
         <wantNonLocal>1</wantNonLocal>
         <debug>0</debug>
         <option>
@@ -1923,7 +1938,7 @@
         </option>
         <option>
           <name>CrcAlgorithm</name>
-          <version>0</version>
+          <version>1</version>
           <state>1</state>
         </option>
         <option>
@@ -1934,6 +1949,14 @@
         <option>
           <name>IlinkThreadsSlave</name>
           <state>1</state>
+        </option>
+        <option>
+          <name>IlinkLogCallGraph</name>
+          <state>0</state>
+        </option>
+        <option>
+          <name>IlinkIcfFile_AltDefault</name>
+          <state></state>
         </option>
       </data>
     </settings>
@@ -1983,6 +2006,310 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\src\main.c</name>
+      <configuration>
+        <name>Debug</name>
+        <settings>
+          <name>ICCARM</name>
+          <data>
+            <version>31</version>
+            <wantNonLocal>0</wantNonLocal>
+            <debug>1</debug>
+            <option>
+              <name>CCDefines</name>
+              <state>MTK_PING_OUT_ENABLE</state>
+              <state>PCFG_OS=2</state>
+              <state>_REENT_SMALL</state>
+              <state>MTK_MINISUPP_ENABLE</state>
+              <state>MTK_MINICLI_ENABLE</state>
+              <state>MTK_BSPEXT_ENABLE</state>
+              <state>MTK_HAL_LOWPOWER_ENABLE</state>
+              <state>MTK_LWIP_ENABLE</state>
+              <state>MTK_IPERF_ENABLE</state>
+              <state>PRODUCT_VERSION=7687</state>
+              <state>MTK_SMTCN_ENABLE</state>
+              <state>MTK_WIFI_REPEATER_ENABLE</state>
+              <state>CONFIG_REPEATER</state>
+              <state>MTK_DEBUG_LEVEL_INFO</state>
+              <state>MTK_DEBUG_LEVEL_WARNING</state>
+              <state>MTK_DEBUG_LEVEL_ERROR</state>
+              <state>configOVERRIDE_DEFAULT_TICK_CONFIGURATION</state>
+              <state>CFG_SUPPORT_SMNT_PROTO=2</state>
+              <state>MTK_WIFI_WPS_ENABLE</state>
+              <state>MTK_NVDM_ENABLE</state>
+            </option>
+            <option>
+              <name>CCPreprocFile</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCPreprocComments</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCPreprocLine</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCListCFile</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>CCListCMnemonics</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCListCMessages</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCListAssFile</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>CCListAssSource</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>CCEnableRemarks</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCDiagSuppress</name>
+              <state>Pa050,Ta022,Ta023</state>
+            </option>
+            <option>
+              <name>CCDiagRemark</name>
+              <state></state>
+            </option>
+            <option>
+              <name>CCDiagWarning</name>
+              <state></state>
+            </option>
+            <option>
+              <name>CCDiagError</name>
+              <state>Pe606</state>
+            </option>
+            <option>
+              <name>CCObjPrefix</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>CCAllowList</name>
+              <version>1</version>
+              <state>10010100</state>
+            </option>
+            <option>
+              <name>CCDebugInfo</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>IEndianMode</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>IProcessor</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>IExtraOptionsCheck</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>IExtraOptions</name>
+              <state></state>
+            </option>
+            <option>
+              <name>CCLangConformance</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCSignedPlainChar</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>CCRequirePrototypes</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCMultibyteSupport</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCDiagWarnAreErr</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCCompilerRuntimeInfo</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>IFpuProcessor</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>OutputFile</name>
+              <state>$FILE_BNAME$.o</state>
+            </option>
+            <option>
+              <name>CCLibConfigHeader</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>PreInclude</name>
+              <state></state>
+            </option>
+            <option>
+              <name>CompilerMisraOverride</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCIncludePath2</name>
+              <state>$PROJ_DIR$\..\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\kernel\service\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\kernel\rtos\FreeRTOS\Source\include</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\kernel\rtos\FreeRTOS\Source\portable\IAR\ARM_CM4F</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\kernel\rtos\FreeRTOS\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\driver\CMSIS\Device\MTK\mt7687\Include</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\driver\CMSIS\Include</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\lwip\src\include</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\lwip\ports\include</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\driver\chip\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\driver\chip\mt7687\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\wifi\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\dhcpd\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\minicli\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\minisupp\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\driver\chip\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\driver\chip\mt7687\src\common\include</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\lwip\src\include</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\lwip\ports\include</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\lwip\src\include\lwip</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\project\common\bsp_ex\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\nvdm\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\ping\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\smtcn\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\iperf\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\project\mt7687_hdk\apps\mcs_gpio_interrupt_mqtt\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\driver\chip\mt7687\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\util\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\wifi\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\ept\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\external_flash\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\httpclient\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTClient-C\src</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTPacket\src</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTClient-C\src\mediatek</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mbedtls\include</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\fota\inc</state>
+              <state>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\fota\inc\76x7</state>
+            </option>
+            <option>
+              <name>CCStdIncCheck</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCCodeSection</name>
+              <state>.text</state>
+            </option>
+            <option>
+              <name>IInterwork2</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>IProcessorMode2</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>CCOptLevel</name>
+              <state>2</state>
+            </option>
+            <option>
+              <name>CCOptStrategy</name>
+              <version>0</version>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCOptLevelSlave</name>
+              <state>2</state>
+            </option>
+            <option>
+              <name>CompilerMisraRules98</name>
+              <version>0</version>
+              <state>1000111110110101101110011100111111101110011011000101110111101101100111111111111100110011111001110111001111111111111111111111111</state>
+            </option>
+            <option>
+              <name>CompilerMisraRules04</name>
+              <version>0</version>
+              <state>111101110010111111111000110111111111111111111111111110010111101111010101111111111111111111111111101111111011111001111011111011111111111111111</state>
+            </option>
+            <option>
+              <name>CCPosIndRopi</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCPosIndRwpi</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCPosIndNoDynInit</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>IccLang</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>IccCDialect</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>IccAllowVLA</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>IccCppDialect</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>IccExceptions</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>IccRTTI</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>IccStaticDestr</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>IccCppInlineSemantics</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>IccCmsis</name>
+              <state>1</state>
+            </option>
+            <option>
+              <name>IccFloatSemantics</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCOptimizationNoSizeConstraints</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCNoLiteralPool</name>
+              <state>0</state>
+            </option>
+            <option>
+              <name>CCOptStrategySlave</name>
+              <version>0</version>
+              <state>0</state>
+            </option>
+          </data>
+        </settings>
+      </configuration>
     </file>
     <file>
       <name>$PROJ_DIR$\..\src\sys_init.c</name>
@@ -2009,9 +2336,6 @@
       <name>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\lib\libwifi_CM4_IAR.a</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\wifi\src\wifi_os_api.c</name>
-    </file>
-    <file>
       <name>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\wifi\src\misc.c</name>
     </file>
     <file>
@@ -2034,6 +2358,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\wifi\src\wifi_init.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\wifi\src\wifi_os_api.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\wifi\src\wifi_profile.c</name>
@@ -2081,10 +2408,10 @@
   <group>
     <name>driver</name>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\driver\chip\mt7687\src\sdio_gen3\connsys_bus.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\external_flash\src\bsp_flash_config.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\..\..\..\..\driver\board\mt76x7_hdk\external_flash\src\bsp_flash_config.c</name>
+      <name>$PROJ_DIR$\..\..\..\..\..\driver\chip\mt7687\src\sdio_gen3\connsys_bus.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\driver\chip\mt7687\src\sdio_gen3\connsys_driver.c</name>
@@ -2639,6 +2966,15 @@
       <name>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\smtcn\src\smt_conn.c</name>
     </file>
   </group>
+  <file>
+    <name>$PROJ_DIR$\..\src\mcs.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\src\mcs_mqtt.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\src\mcs_tcp.c</name>
+  </file>
 </project>
 
 
