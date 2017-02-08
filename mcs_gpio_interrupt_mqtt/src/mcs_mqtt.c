@@ -17,10 +17,10 @@
 #define MIN(a,b) ((a) < (b) ? a : b)
 
 Client c;
-char *topic_buf [20] = {0};
-char *value_buf [100] = {0};
+char topic_buf [20] = {0};
+char value_buf [100] = {0};
 
-void mqttMessageArrived(MessageData *md)
+int mqttMessageArrived(MessageData *md)
 {
     char rcv_buf_old[200] = {0};
     char rcv_buf[200] = {0};
@@ -52,15 +52,17 @@ void mqttMessageArrived(MessageData *md)
         }
     } else {
         if (strcmp(rcv_buf_old, rcv_buf) != 0) {
-            * rcv_buf_old = "";
-            strncpy(*rcv_buf_old, rcv_buf, 200);
+            // * rcv_buf_old = "";
+            strncpy(rcv_buf_old, "\0", 200);
+            strncpy(rcv_buf_old, rcv_buf, 200);
             mcs_mqtt_callback(rcv_buf);
         }
+        return 0;
     }
 
 }
 
-void mcs_mqtt_upload_datapoint(char* channel, char *value)
+int mcs_mqtt_upload_datapoint(char* channel, char *value)
 {
     MQTTMessage message1;
     message1.qos = QOS0;
@@ -110,7 +112,7 @@ void mcs_mqtt_init(void (*mcs_mqtt_callback)(char *))
 
     if (rc != 0) {
         printf("TCP connect fail,status -%4X\n", -rc);
-        return true;
+        return;
     }
 
     //init mqtt client structure
@@ -132,18 +134,18 @@ void mcs_mqtt_init(void (*mcs_mqtt_callback)(char *))
         printf("MQTT connect fail,status%d\n", rc);
     }
 
-    char *device_topic_buf [20] = {0};
+    char device_topic_buf [20] = {0};
     strcat(device_topic_buf, "mcs/");
     strcat(device_topic_buf, DEVICEID);
     strcat(device_topic_buf, "/");
     strcat(device_topic_buf, DEVICEKEY);
     strcat(device_topic_buf, "/+");
 
-    rc = MQTTSubscribe(&c, device_topic_buf, QOS0, mqttMessageArrived);
+    rc = MQTTSubscribe(&c, device_topic_buf, QOS0, (messageHandler) mqttMessageArrived);
     printf("rc(%d):", rc);
     for(;;) {
         MQTTYield(&c, 1000);
     }
 
-    return true;
+    return;
 }
