@@ -2621,6 +2621,33 @@
     </file>
   </group>
   <group>
+    <name>fota</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\fota\src\fota.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\fota\src\76x7\fota_76x7.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\fota\src\76x7\fota_cli.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\fota\src\76x7\fota_config.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\fota\src\76x7\fota_download_interface.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\fota\src\76x7\fota_port.c</name>
+    </file>
+  </group>
+  <group>
+    <name>httpclient</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\httpclient\src\httpclient.c</name>
+    </file>
+  </group>
+  <group>
     <name>iarfs</name>
     <file>
       <name>$EW_DIR$\arm\src\lib\close.c</name>
@@ -2951,6 +2978,45 @@
     <name>minisupp</name>
     <file>
       <name>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\minisupp\lib\libminisupp_wps_CM4_IAR.a</name>
+    </file>
+  </group>
+  <group>
+    <name>mqtt</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTClient-C\src\MQTTClient.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTPacket\src\MQTTConnectClient.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTPacket\src\MQTTConnectServer.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTPacket\src\MQTTDeserializePublish.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTPacket\src\MQTTFormat.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTClient-C\src\mediatek\MQTTMediatek.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTPacket\src\MQTTPacket.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTPacket\src\MQTTSerializePublish.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTPacket\src\MQTTSubscribeClient.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTPacket\src\MQTTSubscribeServer.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTPacket\src\MQTTUnsubscribeClient.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\..\..\..\middleware\third_party\mqtt\MQTTPacket\src\MQTTUnsubscribeServer.c</name>
     </file>
   </group>
   <group>

@@ -54,8 +54,8 @@
 #include "hal_gpio.h"
 #include "timers.h"
 
-#define SSID "mcs"
-#define PASSWORD "mcs12345678"
+#define SSID "daria"
+#define PASSWORD "0918410123"
 
 #define GPIO_ON "switch,1"
 #define GPIO_OFF "switch,0"
