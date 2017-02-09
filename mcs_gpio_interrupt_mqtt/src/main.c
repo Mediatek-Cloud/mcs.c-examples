@@ -55,7 +55,7 @@
 #include "timers.h"
 
 #define SSID "mcs"
-#define PASSWORD "mcs12345678"
+#define PASSWORD "mcs1234"
 
 #define GPIO_ON "switch,1"
 #define GPIO_OFF "switch,0"
@@ -193,7 +193,7 @@ void interrupt_read_init()
     ret = hal_gpio_deinit(HAL_GPIO_0);
 
 }
-static void interrupt_entry()
+static void interrupt_entry(void *args)
 {
     while (1) {
         interrupt_read_init();

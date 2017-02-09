@@ -56,7 +56,7 @@ char *mcs_replace(char *st, char *orig, char *repl) {
   return buffer;
 }
 
-void mcs_upload_datapoint(char *value)
+int mcs_upload_datapoint(char *value)
 {
     /* upload mcs datapoint */
     int ret = HTTPCLIENT_ERROR_CONN;
@@ -89,7 +89,7 @@ void mcs_upload_datapoint(char *value)
     printf("url: %s\n", post_url);
     printf("data: %s\n", value);
 
-    buf = pvPortMalloc(BUF_SIZE);
+    buf = (char *) pvPortMalloc(BUF_SIZE);
     if (buf == NULL) {
         printf("buf malloc failed.\r\n");
         return ret;

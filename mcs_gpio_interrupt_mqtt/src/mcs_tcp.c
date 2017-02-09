@@ -23,7 +23,10 @@
 #include "fota.h"
 #include "fota_config.h"
 
-char *TCP_ip [20] = {0};
+char TCP_ip [20] = {0};
+int s;
+int ret;
+char cmd_buf [50] = {0};
 
 /* tcp config */
 #define SOCK_TCP_SRV_PORT 443
@@ -96,9 +99,7 @@ HTTPCLIENT_RESULT getInitialTCPIP () {
 
 int32_t mcs_tcp_init(void (*mcs_tcp_callback)(char *))
 {
-    int s;
     int c;
-    int ret;
     struct sockaddr_in addr;
     int count = 0;
     int rcv_len, rlen;
@@ -111,7 +112,6 @@ int32_t mcs_tcp_init(void (*mcs_tcp_callback)(char *))
     }
 
     /* command buffer */
-    char cmd_buf [50]= {0};
     strcat(cmd_buf, DEVICEID);
     strcat(cmd_buf, ",");
     strcat(cmd_buf, DEVICEKEY);
@@ -140,10 +140,7 @@ mcs_tcp_connect:
         goto mcs_tcp_connect;
     }
 
-    /* timer */
-    void tcpTimerCallback( TimerHandle_t pxTimer ) {
-        ret = lwip_write(s, cmd_buf, sizeof(cmd_buf));
-    }
+    void tcpTimerCallback( TimerHandle_t pxTimer );
 
     heartbeat_timer = xTimerCreate("TimerMain", (30*1000 / portTICK_RATE_MS), pdTRUE, (void *)0, tcpTimerCallback);
     xTimerStart( heartbeat_timer, 0 );
@@ -201,4 +198,8 @@ mcs_tcp_connect:
 idle:
     LOG_I(common, "MCS tcp-client end");
     return MCS_TCP_DISCONNECT;
+}
+
+void tcpTimerCallback( TimerHandle_t pxTimer ) {
+    ret = lwip_write(s, cmd_buf, sizeof(cmd_buf));
 }
