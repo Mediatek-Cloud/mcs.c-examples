@@ -17,7 +17,7 @@
 #define MIN(a,b) ((a) < (b) ? a : b)
 
 Client c;
-char topic_buf [20] = {0};
+char topic_buf [60] = {0};
 char value_buf [100] = {0};
 
 int mqttMessageArrived(MessageData *md)
@@ -72,7 +72,7 @@ int mcs_mqtt_upload_datapoint(char* channel, char *value)
     topic_buf[0] = '\0';
     value_buf[0] = '\0';
 
-    // char topic_buf [20] = {0};
+    // char topic_buf [60] = {0};
     strcat(topic_buf, "mcs/");
     strcat(topic_buf, DEVICEID);
     strcat(topic_buf, "/");

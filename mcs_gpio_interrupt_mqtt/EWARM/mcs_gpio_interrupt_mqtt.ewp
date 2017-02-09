@@ -194,7 +194,6 @@
           <state>MTK_SMTCN_ENABLE</state>
           <state>MTK_WIFI_REPEATER_ENABLE</state>
           <state>CONFIG_REPEATER</state>
-          <state>MTK_DEBUG_LEVEL_INFO</state>
           <state>MTK_DEBUG_LEVEL_WARNING</state>
           <state>MTK_DEBUG_LEVEL_ERROR</state>
           <state>configOVERRIDE_DEFAULT_TICK_CONFIGURATION</state>
