@@ -194,15 +194,13 @@
           <state>MTK_SMTCN_ENABLE</state>
           <state>MTK_WIFI_REPEATER_ENABLE</state>
           <state>CONFIG_REPEATER</state>
-          <state>MTK_DEBUG_LEVEL_INFO</state>
-          <state>MTK_DEBUG_LEVEL_WARNING</state>
-          <state>MTK_DEBUG_LEVEL_ERROR</state>
           <state>configOVERRIDE_DEFAULT_TICK_CONFIGURATION</state>
           <state>CFG_SUPPORT_SMNT_PROTO=2</state>
           <state>MTK_WIFI_WPS_ENABLE</state>
           <state>MTK_NVDM_ENABLE</state>
           <state>MTK_FOTA_ON_7687</state>
           <state>MTK_FOTA_ENABLE</state>
+          <state>MTK_DEBUG_LEVEL_NONE</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -370,6 +368,7 @@
           <state>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\fota\inc</state>
           <state>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\fota\inc\76x7</state>
           <state>$PROJ_DIR$\..\..\..\..\..\middleware\MTK\tftp\inc</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\kernel\service\inc</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
